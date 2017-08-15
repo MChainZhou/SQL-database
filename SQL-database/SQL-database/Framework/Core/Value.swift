@@ -19,7 +19,7 @@ public protocol Number:Binding {
 }
 
 //值类型
-public protocol Value:Binding {
+public protocol Value:Binding ,Expressible{
     //泛型一:数据类型->程序当中数据类型(Int、Double、Float、String)
     associatedtype DataType:Binding
     //泛型二：返回值类型->程序当中返回值类型(有可能要进行类型转换)
