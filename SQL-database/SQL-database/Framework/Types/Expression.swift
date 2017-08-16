@@ -20,6 +20,30 @@ public protocol Expressible {
     
 }
 
+extension Expressible {
+    func  asSQL() -> String {
+        let sql = expression
+        
+        var index = 0
+        
+        return sql.template.characters.reduce("")
+            {template, character in
+                let append: String
+                
+                if character == "?" {
+                    //拼接参数->"?"
+                    append = transcode(sql.bindings[index])
+                    index += 1
+                } else {
+                    //拼接关键字
+                    append = String(character)
+                }
+                return template + append
+        }
+        
+    }
+}
+
 
 //父亲类
 //具体抽象字段表达式
@@ -48,6 +72,11 @@ extension ExpressionType {
     
     public init(_ indentifer:String) {
         self.init(literal: indentifer.quote())
+    }
+    
+    //写法三：添加构造方法->传递对象
+    public init<E : ExpressionType>(_ expression: E){
+        self.init(expression.template, expression.bindings)
     }
 }
 

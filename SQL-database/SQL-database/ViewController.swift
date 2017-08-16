@@ -17,13 +17,22 @@ class ViewController: UIViewController {
             let connection = try DBConnection(path!)
             print(connection.readonly)
             
-            //执行SQL
-            try connection.execute("create table t_user(t_user_sex text,t_user_name text)")
+//            //执行SQL
+//            try connection.execute("create table t_user(t_user_sex text,t_user_name text)")
+//            
+//            let statement = try connection.run("insert into t_user(t_user_sex,t_user_name) values(?,?)", "男","Dream")
+//            
+//            print(statement.description)
+            let table = Table("t_user")
+            print("表名：\(table.manager.from)")
+            let name = Expression<String>("t_user_name")
+            let id = Expression<Int>("t_user_id")
             
-            let statement = try connection.run("insert into t_user(t_user_sex,t_user_name) values(?,?)", "男","Dream")
+            let sql = table.creat({ (builder) in
+                builder.column(name).column(id)
+            })
             
-            print(statement.description)
-            
+            try connection.run(sql)
             
         } catch {
             print("出现了异常\(error)");

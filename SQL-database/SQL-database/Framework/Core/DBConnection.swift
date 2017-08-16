@@ -89,9 +89,15 @@ public final class DBConnection {
     public var changes:Int {
         return Int(sqlite3_changes(self.handle))
     }
+    
     //5.3获取数据库受影响的行数
     public var totalChanges:Int {
         return Int(sqlite3_total_changes(self.handle))
+    }
+    
+    //5.4获得插入数据受影响的行的id
+    public var lastInsertRowid: Int64 {
+        return sqlite3_last_insert_rowid(handle)
     }
     
     //6.执行SQL语句

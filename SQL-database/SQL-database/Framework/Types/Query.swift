@@ -16,6 +16,10 @@ public struct QueryManager {
     //创建表操作
     var from:(name:String,database:String?)
     
+    //过滤器(where条件)->统一调用->是否需要条件
+    var filters:Expression<Bool?>?
+    
+    
     fileprivate init(_ name:String,_ database:String?){
         self.from = (name,database)
     }

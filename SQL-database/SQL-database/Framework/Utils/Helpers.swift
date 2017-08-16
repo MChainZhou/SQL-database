@@ -31,6 +31,15 @@ extension String {
         //通过将序列的元素连接起来，返回一个新的字符串，在每个元素之间添加给定的分隔符。
         return Expression<Void>(template.joined(separator: self), bindings)
     }
+    
+    func infixs<T>(_ lhs: Expressible, _ rhs: Expressible, wrap: Bool = true) -> Expression<T> {
+        let expression = Expression<T>(" \(self) ".join([lhs, rhs]).expression)
+        guard wrap else {
+            return expression
+        }
+        return "".wrap(expression)
+    }
+
 
     //前缀(单个)
     func prefix(_ expressions: Expressible) -> Expressible {

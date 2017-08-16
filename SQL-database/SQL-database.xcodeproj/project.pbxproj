@@ -21,6 +21,12 @@
 		183D126F1F41A4BE001BDC5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183D126D1F41A4BE001BDC5F /* LaunchScreen.storyboard */; };
 		183D12811F41A61E001BDC5F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 183D12801F41A61E001BDC5F /* libsqlite3.tbd */; };
 		183D12831F41A69C001BDC5F /* DBConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D12821F41A69C001BDC5F /* DBConnection.swift */; };
+		183DC0261F43D8D0004624D9 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183DC0251F43D8D0004624D9 /* Operators.swift */; };
+		183DC0281F43D8E1004624D9 /* Insert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183DC0271F43D8E1004624D9 /* Insert.swift */; };
+		183DC02A1F43D962004624D9 /* Setter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183DC0291F43D962004624D9 /* Setter.swift */; };
+		183DC02C1F43E0DB004624D9 /* Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183DC02B1F43E0DA004624D9 /* Delete.swift */; };
+		183DC02E1F43E21F004624D9 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183DC02D1F43E21F004624D9 /* Filter.swift */; };
+		183DC0301F43E5CA004624D9 /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183DC02F1F43E5CA004624D9 /* Update.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +48,12 @@
 		183D127E1F41A60E001BDC5F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		183D12801F41A61E001BDC5F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		183D12821F41A69C001BDC5F /* DBConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBConnection.swift; sourceTree = "<group>"; };
+		183DC0251F43D8D0004624D9 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		183DC0271F43D8E1004624D9 /* Insert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Insert.swift; sourceTree = "<group>"; };
+		183DC0291F43D962004624D9 /* Setter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setter.swift; sourceTree = "<group>"; };
+		183DC02B1F43E0DA004624D9 /* Delete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delete.swift; sourceTree = "<group>"; };
+		183DC02D1F43E21F004624D9 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		183DC02F1F43E5CA004624D9 /* Update.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Update.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +71,15 @@
 		18241AAE1F42C9E00003C6CB /* Types */ = {
 			isa = PBXGroup;
 			children = (
+				183DC0251F43D8D0004624D9 /* Operators.swift */,
 				18241AAF1F42C9F20003C6CB /* Expression.swift */,
 				18241AB31F42D2580003C6CB /* Query.swift */,
 				18241AB51F42F2F10003C6CB /* Schema.swift */,
+				183DC0271F43D8E1004624D9 /* Insert.swift */,
+				183DC0291F43D962004624D9 /* Setter.swift */,
+				183DC02B1F43E0DA004624D9 /* Delete.swift */,
+				183DC02F1F43E5CA004624D9 /* Update.swift */,
+				183DC02D1F43E21F004624D9 /* Filter.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -218,14 +236,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				18241AB61F42F2F10003C6CB /* Schema.swift in Sources */,
+				183DC0261F43D8D0004624D9 /* Operators.swift in Sources */,
+				183DC02A1F43D962004624D9 /* Setter.swift in Sources */,
 				183D12831F41A69C001BDC5F /* DBConnection.swift in Sources */,
 				18241AB21F42CD950003C6CB /* Helpers.swift in Sources */,
 				183D12671F41A4BE001BDC5F /* ViewController.swift in Sources */,
 				18241AA91F428E6C0003C6CB /* Value.swift in Sources */,
+				183DC02E1F43E21F004624D9 /* Filter.swift in Sources */,
 				18241AB41F42D2580003C6CB /* Query.swift in Sources */,
+				183DC0281F43D8E1004624D9 /* Insert.swift in Sources */,
 				183D12651F41A4BE001BDC5F /* AppDelegate.swift in Sources */,
 				18241AA71F428C4F0003C6CB /* Statement.swift in Sources */,
+				183DC0301F43E5CA004624D9 /* Update.swift in Sources */,
 				18241AB01F42C9F20003C6CB /* Expression.swift in Sources */,
+				183DC02C1F43E0DB004624D9 /* Delete.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,9 +11,9 @@ import Foundation
 
 extension QueryType {
     //创建表
-    public func creat(_ identifier:String, _ name:Expressible) -> Expressible {
+    public func create(_ identifier:String, _ name:Expressible) -> Expressible {
         let  expressionArray:[Expressible?] = [
-            Expression<Void>(literal:"CREAT"),
+            Expression<Void>(literal:"CREATE"),
             Expression<Void>(literal:identifier),
             name
         ]
@@ -25,7 +25,21 @@ extension QueryType {
 extension Table {
     
     //构建表
-//    public func creat(_ build:())
+    public func creat(_ build:(TableBuilder)->(Void)) -> String{
+        let tableBuilder = TableBuilder()
+        build(tableBuilder)
+        //分为两个部分
+        //一个部分create(Table.identifier,tableName())表示：create table t_user
+        //一个部分"".wrap(tableBuild.expressions)表示：(t_user_sex text, t_user_name text)
+        let expression:[Expressible?] = [
+            create(Table.identifier,tableName()),
+            "".wrap(tableBuilder.expressions) as Expression<Void>
+        ]
+        
+        return " ".join(expression.flatMap{ $0 }).asSQL()
+        
+        
+    }
 
 }
 
