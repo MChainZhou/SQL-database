@@ -15,10 +15,11 @@ extension QueryType {
     }
     
     fileprivate func insert(_ values:[Setter]) -> Insert {
-        let insert = values.reduce((column:[Expressible](),values:[Expressible]())) { (insert, setter) in
-            (insert.column+[setter.column],insert.values + [setter.value])
+        let insert = values.reduce((column:[Expressible](),values:[Expressible]())) { (inser, setter) in
+            (inser.column+[setter.column],inser.values + [setter.value])
         }
         
+    
         //拼接SQL语句->面向对象形式存在
         let expressionArray:[Expressible?] = [
             Expression<Void>(literal: "INSERT"),
@@ -52,6 +53,7 @@ public struct Insert: ExpressionType {
     public var template: String
     public var bindings: [Binding?]
     
+    //template:"INSERT INTO \"t_user\" (\"t_user_id\", \"t_user_name\") VALUES (?, ?)"
     public init(_ template: String, _ bindings: [Binding?]) {
         self.template = template
         self.bindings = bindings

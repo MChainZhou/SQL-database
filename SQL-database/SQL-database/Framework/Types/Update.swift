@@ -29,7 +29,7 @@ extension QueryType {
 
 
 extension DBConnection {
-    public func run(_ update:Update) throws -> Int {
+    @discardableResult public func run(_ update:Update) throws -> Int {
         let expression = update.expression
         return try dbSync{
             try self.run(expression.template, expression.bindings)

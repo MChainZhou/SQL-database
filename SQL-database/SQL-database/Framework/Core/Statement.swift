@@ -22,6 +22,12 @@ public final class Statement {
     //数据库表指针
     fileprivate var handle:OpaquePointer? = nil
     
+    //获取表字段数量
+    public lazy var columnCount:Int = Int(sqlite3_column_count(self.handle))
+    
+    //定义一个容器
+    public lazy var row:Cursor = Cursor(self)
+    
     //1.实现构造方法
     init(_ connection:DBConnection,_ SQL:String) throws {
         self.connection = connection
@@ -135,5 +141,75 @@ public final class Statement {
 extension Statement:CustomStringConvertible {
     public var description: String {
         return String(cString: sqlite3_sql(self.handle))
+    }
+}
+
+extension Statement :IteratorProtocol {
+    public func next() -> [Binding?]? {
+        return try! step() ? Array(row) : nil
+    }
+}
+
+public struct Cursor {
+    //实现具体的容器
+    fileprivate let handle:OpaquePointer
+    
+    fileprivate let columnCount:Int
+    
+    fileprivate init(_ statement:Statement) {
+        self.handle = statement.handle!
+        self.columnCount = statement.columnCount
+    }
+    
+    public subscript (index:Int)->Double {
+        return sqlite3_column_double(self.handle, Int32(index))
+    }
+    
+    public subscript (index:Int)->Float {
+        return Float(sqlite3_column_double(self.handle, Int32(index)))
+    }
+    
+    public subscript (index:Int)->String {
+        return String(cString:sqlite3_column_text(self.handle, Int32(index)))
+    }
+    
+    public subscript(index: Int) -> Int {
+        return Int(sqlite3_column_int(handle, Int32(index)))
+    }
+    
+    public subscript(index: Int) -> Bool {
+        return Bool.fromDatatypeValue(index)
+    }
+    
+    public subscript(index:Int) -> Binding? {
+        switch sqlite3_column_type(self.handle, Int32(index)) {
+        case SQLITE_FLOAT:
+            return self[index] as Double
+        case SQLITE_INSERT:
+            return self[index] as Int
+        case SQLITE_NULL:
+            return nil
+        case SQLITE_TEXT:
+            return self[index] as String
+        case let type:
+            fatalError("没有这个类型\(type)")
+        }
+    }
+}
+
+extension Cursor :Sequence {
+    public func makeIterator() -> AnyIterator<Binding?> {
+        var index = 0
+        
+        return AnyIterator {
+            if index >= self.columnCount {
+                return Optional<Binding?>.none
+            } else {
+                index += 1
+                
+                return self[index - 1]
+            }
+        }
+        
     }
 }

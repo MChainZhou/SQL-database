@@ -64,7 +64,7 @@ public final class DBConnection {
         
         let flags = readOnly ? SQLITE_OPEN_READONLY : SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE
         sqlite3_open_v2(location.description, &handle, flags | SQLITE_OPEN_FULLMUTEX, nil);
-        
+
         queue.setSpecific(key: DBConnection.queueKey, value: queueContent)
     }
     

@@ -20,6 +20,8 @@ public struct QueryManager {
     var filters:Expression<Bool?>?
     
     
+    var select = (distinct: false,columns: [Expression<Void>(literal: "*") as Expressible])
+    
     fileprivate init(_ name:String,_ database:String?){
         self.from = (name,database)
     }

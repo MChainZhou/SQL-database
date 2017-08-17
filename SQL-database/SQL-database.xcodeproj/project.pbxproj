@@ -27,6 +27,7 @@
 		183DC02C1F43E0DB004624D9 /* Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183DC02B1F43E0DA004624D9 /* Delete.swift */; };
 		183DC02E1F43E21F004624D9 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183DC02D1F43E21F004624D9 /* Filter.swift */; };
 		183DC0301F43E5CA004624D9 /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183DC02F1F43E5CA004624D9 /* Update.swift */; };
+		1871E1681F45430F00259420 /* Select.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871E1671F45430F00259420 /* Select.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		183DC02B1F43E0DA004624D9 /* Delete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delete.swift; sourceTree = "<group>"; };
 		183DC02D1F43E21F004624D9 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		183DC02F1F43E5CA004624D9 /* Update.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Update.swift; sourceTree = "<group>"; };
+		1871E1671F45430F00259420 /* Select.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Select.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				183DC02B1F43E0DA004624D9 /* Delete.swift */,
 				183DC02F1F43E5CA004624D9 /* Update.swift */,
 				183DC02D1F43E21F004624D9 /* Filter.swift */,
+				1871E1671F45430F00259420 /* Select.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				18241AB21F42CD950003C6CB /* Helpers.swift in Sources */,
 				183D12671F41A4BE001BDC5F /* ViewController.swift in Sources */,
 				18241AA91F428E6C0003C6CB /* Value.swift in Sources */,
+				1871E1681F45430F00259420 /* Select.swift in Sources */,
 				183DC02E1F43E21F004624D9 /* Filter.swift in Sources */,
 				18241AB41F42D2580003C6CB /* Query.swift in Sources */,
 				183DC0281F43D8E1004624D9 /* Insert.swift in Sources */,
